@@ -4,7 +4,7 @@ import PropTypes from 'prop-types';
 import { InputContainer, Placeholder, ErrorMessage } from './style';
 import Context from '../Context';
 
-const Input = ({ inputName, placeholder, maxLength, mask }) => {   
+const Input = ({ inputName, placeholder, mask, validateForm }) => {   
     const [value, setValue] = useState('');
     const [error, setError] = useState(false);
     const [cardInfo, setCardInfo] = useContext(Context);
@@ -68,16 +68,12 @@ const Input = ({ inputName, placeholder, maxLength, mask }) => {
                 ref={ref}
                 name={inputName}
                 value={value}
-                maxLength={maxLength}
                 onChange={({ target }) => {
                     setValue(target.value);
                     handleEditCardInfo(target);
+                    validateForm()
                 }}
-                onFocus={() => {
-                    if(inputName === 'securityNumber') {
-                        handleFlipCard(false);
-                    }
-                }}
+                onFocus={() => inputName === 'securityNumber' && handleFlipCard(false)}
                 onBlur={() => {
                     validateInput();
                     if(inputName === 'securityNumber') {

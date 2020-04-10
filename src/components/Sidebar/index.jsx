@@ -16,7 +16,15 @@ import Context from '../Context';
 
 const Sidebar = () => {
     const [cardInfo] = useContext(Context);
-    const { number, name, validate, securityNumber, showFront } = cardInfo;
+    const { number, name, validate, securityNumber, showFront, isValidCard } = cardInfo;
+    const emptyFrontBg = "../../assets/images/empty-card-front-bg.svg";
+    const emptyBackBg = "../../assets/images/empty-card-back-bg.svg";
+
+    const validCardFrontBg = "../../assets/images/card-back-bg.svg";
+    const validCardBackBg = "../../assets/images/card-back-bg.svg";
+
+    const frontCardBg = isValidCard ? validCardFrontBg : emptyFrontBg;
+    const backCardBg = isValidCard ? validCardBackBg : emptyBackBg;
 
     return (
         <SidebarContainer>
@@ -26,13 +34,13 @@ const Sidebar = () => {
             <Step />
             <Card flip={showFront}>
                 <CardFront>
-                    <CardBackground src="../../assets/images/empty-card-front-bg.svg" />
+                    <CardBackground src={frontCardBg} />
                     <CardNumber>{number}</CardNumber>
                     <CardName>{name}</CardName>
                     <CardValidate>{validate}</CardValidate>
                 </CardFront>
                 <CardBack>
-                    <CardBackground src="../../assets/images/empty-card-back-bg.svg" />
+                    <CardBackground src={backCardBg} />
                     <CardSecurityNumber>{securityNumber}</CardSecurityNumber>
                 </CardBack>
             </Card>

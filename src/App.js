@@ -13,6 +13,7 @@ function App() {
     validate: '00/00',
     securityNumber: '000',
     showFront: true,
+    isValidCard: false,
   });
 
 

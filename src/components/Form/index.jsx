@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { useRef } from 'react';
 import PropTypes from 'prop-types';
 import { Form } from './style';
 import Input from '../Input';
@@ -6,33 +6,37 @@ import SelectBox from '../SelectBox';
 import Button from '../Button/style';
 
 const RegisterForm = () => {
-    const NUMBER_LENGTH = 16;
-    const VALIDATE_LENGTH = 4;
-    const SECURITY_NUMBER_LENGTH = 3;
+    const formRef = useRef(null);
 
+    const validateForm = () => {
+        const [inputNumber, inputName, inputValidate, inputSecurityNumber] = formRef.current.elements;
+        console.log(inputNumber, inputName, inputValidate, inputSecurityNumber)
+    };
+    
     return (
-        <Form method="POST">
+        <Form method="POST" ref={formRef}>
             <Input 
                 inputName="number" 
                 placeholder="Número do cartão" 
-                maxLength={NUMBER_LENGTH}
                 mask="9999 9999 9999 9999"
+                validateForm={validateForm}
             />
             <Input 
                 inputName="name" 
                 placeholder="Nome (igual ao cartão)"
+                validateForm={validateForm}
             />
             <Input 
                 inputName="validate"
                 placeholder="Validade"
-                maxLength={VALIDATE_LENGTH}
                 mask="99/99"
+                validateForm={validateForm}
             />
             <Input 
                 inputName="securityNumber"
                 placeholder="CVV"
-                maxLength={SECURITY_NUMBER_LENGTH}
                 mask="999"
+                validateForm={validateForm}
             />
 
             <SelectBox placeholder="Número de parcelas" />

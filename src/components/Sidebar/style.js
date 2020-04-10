@@ -115,6 +115,7 @@ export const CardNumber = styled.span`
 
 export const CardName = styled.span`
     ${CardInfoStyle};
+    max-width: 206px;
     font-size: 12px;
     line-height: 15px;
     text-transform: uppercase;
