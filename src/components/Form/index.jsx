@@ -1,38 +1,27 @@
-import React, { useRef, useContext } from "react";
+import React, { useRef } from "react";
 import PropTypes from "prop-types";
 import { Form } from "./style";
 import Input from "../Input";
 import SelectBox from "../SelectBox";
 import Button from "../Button/style";
-import { processString } from "../../helpers/processString";
-import Context from "../Context";
+import { treatString } from "../../helpers/treatString";
 
 const RegisterForm = () => {
   const formRef = useRef(null);
-  const [cardInfo, setCardInfo] = useContext(Context);
 
   const validateForm = () => {
     const [inputNumber, , inputValidate, inputSecurityNumber] = Array.from(
       formRef.current.elements
-    ).map((item) => processString(item.value));
+    ).map((item) => treatString(item.value));
 
     if (
       inputNumber.length < 16 ||
       inputValidate.length < 4 ||
       inputSecurityNumber.length < 3
     ) {
-      console.log("nada");
-      setCardInfo({
-        ...cardInfo,
-        isValidCard: false,
-      });
       return false;
     }
-    console.log("PASSOU");
-    setCardInfo({
-      ...cardInfo,
-      isValidCard: true,
-    });
+    return true;
   };
 
   return (
@@ -61,7 +50,7 @@ const RegisterForm = () => {
         validateForm={validateForm}
       />
 
-      <SelectBox placeholder="Número de parcelas" />
+      <SelectBox inputName="installments" placeholder="Número de parcelas" />
       <Button onClick={(e) => e.preventDefault()}>Continuar</Button>
     </Form>
   );

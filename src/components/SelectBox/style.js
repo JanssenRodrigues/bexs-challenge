@@ -28,7 +28,7 @@ export const SelectContainer = styled.div`
             ? css`transform: rotate(45deg)`
             : css`transform: rotate(-45deg)`};
     }
-
+ 
     input {
         ${InputStyle}
     }

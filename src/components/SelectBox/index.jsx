@@ -1,11 +1,12 @@
 import React, { useState } from 'react';
 import PropTypes from 'prop-types';
-import { Placeholder } from '../Input/style';
+import { Placeholder, ErrorMessage } from '../Input/style';
 import { SelectContainer, Select, List, ListItem } from './style';
+import { errorMessages } from '../../helpers/staticData';
 
-const SelectBox = ({ placeholder }) => {
+const SelectBox = ({ inputName, placeholder }) => {
     const [isOpen, setIsOpen] = useState(false);
-    const [, setSelectedInstallments] = useState(1);
+    const [error, setError] = useState(false);
     const [selectedPlaceholder, setselectedPlaceholder] = useState('');
 
     const MAX_INSTALLMENTS = 12;
@@ -15,20 +16,36 @@ const SelectBox = ({ placeholder }) => {
         currency: 'BRL',
     });
 
+    const verifyInstallments = (value) => {
+        if(value !== '') {
+            return setError(false);
+        }
+        return setError(true);
+    };
+
     return (
         <SelectContainer isOpen={isOpen} onClick={() => setIsOpen(!isOpen)}>
-            <input name="select-box" type="text" value={selectedPlaceholder} disabled={true}/>
+            <input 
+                name="select-box"
+                type="text"
+                value={selectedPlaceholder}
+                onChange={({ target }) => verifyInstallments(target.value)}
+                onBlur={({ target }) => verifyInstallments(target.value)}
+            />
             <Placeholder isHidden={selectedPlaceholder}>{placeholder}</Placeholder>
+            {error && <ErrorMessage>{errorMessages[inputName]}</ErrorMessage>}
             <Select>
                 <List isOpen={isOpen} maxHeight={MAX_INSTALLMENTS * 43}> {/* 43 is the ListItem height*/} 
                     {[...new Array(MAX_INSTALLMENTS)].map((_, index) => {
                         const installment = index + 1;
                         return (
-                            <ListItem key={index} onClick={({ target }) => {
-                                console.log(target.textContent);
-                                setselectedPlaceholder(target.textContent);
-                                setSelectedInstallments(installment);
-                            }}>
+                            <ListItem 
+                                key={installment} 
+                                onClick={({ target }) => {
+                                    setselectedPlaceholder(target.textContent);
+                                    verifyInstallments(target.value);
+                                }}
+                            >
                                 {`${installment}x ${formatter.format(checkoutValue / installment)} sem juros`}
                             </ListItem>
                         );

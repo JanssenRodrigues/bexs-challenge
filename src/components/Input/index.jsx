@@ -3,7 +3,8 @@ import Inputmask from "inputmask";
 import PropTypes from "prop-types";
 import { InputContainer, Placeholder, ErrorMessage } from "./style";
 import Context from "../Context";
-import { processString } from "../../helpers/processString";
+import { treatString } from "../../helpers/treatString";
+import { errorMessages } from "../../helpers/staticData";
 
 const Input = ({ inputName, placeholder, mask, validateForm }) => {
   const [value, setValue] = useState("");
@@ -12,31 +13,25 @@ const Input = ({ inputName, placeholder, mask, validateForm }) => {
   const ref = useRef(null);
   const inputMask = new Inputmask({ mask, placeholder: "" });
 
-  const errorMessages = {
-    number: "Número de cartão inválido",
-    name: "Insira seu nome completo",
-    validate: "Data inválida",
-    securityNumber: "Código inválido",
-    installments: "Insira o número de parcelas",
-  };
-
   const handleEditCardInfo = (target) => {
     inputMask.mask(ref.current);
+    const isValidCard = validateForm();
     setCardInfo({
       ...cardInfo,
+      isValidCard,
       [inputName]: target.value,
     });
   };
 
-  const handleFlipCard = (value) => {
+  const flipCard = (value) => {
     setCardInfo({
       ...cardInfo,
       showFront: value,
     });
   };
 
-  const validateInput = () => {
-    const realValue = processString(ref.current.value);
+  const validateInput = async () => {
+    const realValue = treatString(ref.current.value);
     switch (inputName) {
       case "number":
         if (realValue.length < 16) {
@@ -59,6 +54,11 @@ const Input = ({ inputName, placeholder, mask, validateForm }) => {
           return setError(true);
         }
         return setError(false);
+      case "installments":
+        if (realValue.length) {
+          return setError(true);
+        }
+        return setError(false);
       default:
         break;
     }
@@ -73,13 +73,12 @@ const Input = ({ inputName, placeholder, mask, validateForm }) => {
         onChange={({ target }) => {
           setValue(target.value);
           handleEditCardInfo(target);
-          validateForm();
         }}
-        onFocus={() => inputName === "securityNumber" && handleFlipCard(false)}
+        onFocus={() => inputName === "securityNumber" && flipCard(false)}
         onBlur={() => {
           validateInput();
           if (inputName === "securityNumber") {
-            handleFlipCard(true);
+            flipCard(true);
           }
         }}
       />

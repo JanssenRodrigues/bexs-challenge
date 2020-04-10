@@ -8,7 +8,7 @@ export const StepContainer = styled.div`
     align-items: center;
     margin-bottom: 15px;
     width: 220px;
-    ${media.tablet`
+    ${media.desktop`
         margin-bottom: 31px;
     `};
 `;
@@ -18,7 +18,7 @@ export const Icon = styled.img`
     flex-shrink: 0;
     width: 40px;
     height: 40px;
-    ${media.tablet`
+    ${media.desktop`
         width: 50px;
         height: 50px;
     `};
@@ -30,7 +30,7 @@ export const StepLabel = styled.label`
     line-height: 20px;
     font-weight: bold;
     margin-left: 15px;
-    ${media.tablet`
+    ${media.desktop`
         font-size: 20px;
         line-height: 24px;
     `};

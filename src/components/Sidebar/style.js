@@ -17,12 +17,14 @@ export const SidebarContainer = styled.aside`
     #f7f7f7 239px,
     #f7f7f7 100%
   );
-  ${media.tablet`
-        background-color: #DE4B4B;
-        padding-top: 53px;
-        padding-left: 64px;
-        max-width: 352px;
-    `};
+  ${media.desktop`
+    background: none;
+    background-color: #DE4B4B;
+    padding-top: 53px;
+    padding-left: 64px;
+    max-width: 352px;
+    height: 100%;
+  `};
 `;
 
 export const BackStep = styled(Link)`
@@ -35,10 +37,10 @@ export const BackStep = styled(Link)`
   line-height: 36px;
   position: relative;
   text-align: center;
-  ${media.tablet`
-        line-height: 22px;
-        margin-bottom: 54px;
-    `};
+  ${media.desktop`
+    line-height: 22px;
+    margin-bottom: 54px;
+  `};
   &::before,
   &::after {
     content: "";
@@ -79,7 +81,7 @@ export const Card = styled.div`
     css`
       transform: rotateY(180deg);
     `}
-  ${media.tablet`
+  ${media.desktop`
     width: 364px;
     height: 223px;
   `};
