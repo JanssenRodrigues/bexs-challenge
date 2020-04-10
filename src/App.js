@@ -5,17 +5,15 @@ import Sidebar from "./components/Sidebar";
 import RegisterForm from "./components/Form";
 import Context from "./components/Context";
 
-
 function App() {
   const [cardInfo, setCardInfo] = useState({
-    number: '**** **** **** ****',
-    name: 'Nome do titular',
-    validate: '00/00',
-    securityNumber: '000',
+    number: "**** **** **** ****",
+    name: "Nome do titular",
+    validate: "00/00",
+    securityNumber: "000",
     showFront: true,
     isValidCard: false,
   });
-
 
   return (
     <>
