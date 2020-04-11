@@ -18,6 +18,7 @@ export const SidebarContainer = styled.aside`
     #f7f7f7 100%
   );
   ${media.desktop`
+    align-items: flex-start;
     background: none;
     background-color: #DE4B4B;
     padding-top: 53px;
@@ -52,15 +53,25 @@ export const BackStep = styled(Link)`
     left: 0px;
     border-top-right-radius: 15px;
     border-bottom-right-radius: 15px;
+    ${media.desktop`
+      width: 9px;
+      height: 2px;
+    `}
   }
 
   &::before {
     top: 12px;
     transform: rotate(-45deg);
+    ${media.desktop`
+      top: 7px;
+    `}
   }
   &::after {
     bottom: 12px;
     transform: rotate(45deg);
+    ${media.desktop`
+      bottom: 7px;
+    `}
   }
 
   strong {

@@ -1,4 +1,5 @@
 import styled from 'styled-components';
+import media from '../../mediaQueries';
 
 export const Form = styled.form`
     display: flex;
@@ -6,5 +7,8 @@ export const Form = styled.form`
     flex-wrap: wrap;
     justify-content: space-between;
     padding: 0 40px;
+    ${media.desktop`
+        padding: 0 64px 0 0;
+    `}
 `;
 

@@ -9,6 +9,7 @@ export const StepContainer = styled.div`
     margin-bottom: 15px;
     width: 220px;
     ${media.desktop`
+        width: auto;
         margin-bottom: 31px;
     `};
 `;

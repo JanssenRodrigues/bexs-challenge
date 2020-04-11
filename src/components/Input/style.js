@@ -40,4 +40,7 @@ export const ErrorMessage = styled.span`
     font-size: 14px;
     line-height: 22px;
     margin-top: 2px;
+    position: absolute;
+    left: 0;
+    bottom: -20px;
 `;
