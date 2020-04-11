@@ -8,23 +8,21 @@ export const SidebarContainer = styled.aside`
   align-items: center;
   width: 100%;
   height: 100%;
-  padding: 38px 15px 0;
-  margin-bottom: 40px;
+  padding: 38px 15px 40px;
   background: linear-gradient(
     to bottom,
     #de4b4b 0%,
     #de4b4b 239px,
-    #f7f7f7 239px,
-    #f7f7f7 100%
+    #fff 239px,
+    #fff 100%
   );
   ${media.desktop`
     align-items: flex-start;
-    background: none;
-    background-color: #DE4B4B;
-    padding-top: 53px;
-    padding-left: 64px;
     max-width: 352px;
     height: 100%;
+    padding: 53px 0 40px 64px;
+    background: none;
+    background-color: #DE4B4B;
   `};
 `;
 
@@ -133,6 +131,12 @@ export const CardNumber = styled.span`
   line-height: 20px;
   letter-spacing: 1.5px;
   text-align: center;
+  ${media.desktop`
+    top: 106px;
+    font-size: 22px;
+    line-height: 28px;
+    letter-spacing: 2.3px;
+  `};
 `;
 
 export const CardName = styled.span`
@@ -142,6 +146,10 @@ export const CardName = styled.span`
   line-height: 15px;
   text-transform: uppercase;
   top: 127px;
+  ${media.desktop`
+    top: 167px;
+    font-size: 16px;
+`};
 `;
 
 export const CardValidate = styled.span`
@@ -151,6 +159,10 @@ export const CardValidate = styled.span`
   text-transform: uppercase;
   top: 127px;
   right: 0;
+  ${media.desktop`
+    top: 167px;
+    font-size: 16px;
+`};
 `;
 
 export const CardSecurityNumber = styled.span`
@@ -161,4 +173,9 @@ export const CardSecurityNumber = styled.span`
   top: 85px;
   right: 103px;
   color: #000;
+  ${media.desktop`
+    top: 110px;
+    right: 140px;
+    font-size: 16px;
+`};
 `;

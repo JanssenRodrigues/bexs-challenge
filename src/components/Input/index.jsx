@@ -82,7 +82,7 @@ const Input = ({ inputName, placeholder, mask, validateForm }) => {
           }
         }}
       />
-      <Placeholder isHidden={value}>{placeholder}</Placeholder>
+      <Placeholder fixed={value}>{placeholder}</Placeholder>
       {error && <ErrorMessage>{errorMessages[inputName]}</ErrorMessage>}
     </InputContainer>
   );

@@ -19,7 +19,7 @@ export const BaseStyle = createGlobalStyle`
   }
 
   body {
-    background-color: #F7F7F7;
+    background-color: #f7f7f7;
     font-family: 'Verdana', sans-serif;
   }
 
@@ -48,8 +48,13 @@ export const PageContent = styled.div`
 
 export const Content = styled.article`
   width: 100%;
-  margin-bottom: 38px;
+  background-color: #f7f7f7;
   ${media.desktop`
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    height: 100%;
+    background-color: #fff;
     padding-left: 168px;
   `};
 `;
