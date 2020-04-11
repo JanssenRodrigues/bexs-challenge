@@ -1,6 +1,7 @@
 import { css } from 'styled-components';
 
 const sizes = {
+  largeDesktop: 1365,
   desktop: 1024,
   untilDesktop: 1023,
   tablet: 768,
@@ -15,7 +16,7 @@ const media = Object.keys(sizes).reduce((acc, label) => {
   if (label === 'untilTablet' || label === 'untilDesktop') {
     limiter = 'max-width';
     value = sizes[label];
-  } else if (label === 'phone' || label === 'tablet' || label === 'desktop') {
+  } else if (label === 'phone' || label === 'tablet' || label === 'desktop' || label === 'largeDesktop') {
     limiter = 'min-width';
     value = sizes[label];
   } else {

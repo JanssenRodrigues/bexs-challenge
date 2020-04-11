@@ -36,9 +36,7 @@ const SelectBox = ({ inputName, placeholder }) => {
       <Placeholder fixed={selectedPlaceholder}>{placeholder}</Placeholder>
       {error && <ErrorMessage>{errorMessages[inputName]}</ErrorMessage>}
       <Select>
-        <List isOpen={isOpen} maxHeight={MAX_INSTALLMENTS * 43}>
-          {" "}
-          {/* 43 is the ListItem height*/}
+        <List isOpen={isOpen} maxHeight={MAX_INSTALLMENTS * 43}> {/* 43 is the ListItem height*/}
           {[...new Array(MAX_INSTALLMENTS)].map((_, index) => {
             const installment = index + 1;
             return (

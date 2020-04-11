@@ -39,10 +39,11 @@ export const PageContent = styled.div`
   ${media.desktop`
     display: flex;
     flex-direction: row;
-    justify-content: center;
     max-width: 1024px;
     height: 596px;
-    align-items: center;
+  `}
+  ${media.largeDesktop`
+    max-width: 1365px;
   `}
 `;
 
@@ -50,6 +51,7 @@ export const Content = styled.article`
   width: 100%;
   background-color: #f7f7f7;
   ${media.desktop`
+    max-width: 672px;
     height: 100%;
     background-color: #fff;
     padding-top: 50px;

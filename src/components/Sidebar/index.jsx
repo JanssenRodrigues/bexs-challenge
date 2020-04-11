@@ -1,59 +1,32 @@
-import React, { useContext } from "react";
+import React, { useEffect, useState } from "react";
 import {
   SidebarContainer,
-  BackStep,
-  Card,
-  CardFront,
-  CardBack,
-  CardBackground,
-  CardNumber,
-  CardName,
-  CardValidate,
-  CardSecurityNumber,
-  FlagCard,
+  BackStep
 } from "./style";
 import Step from "../Step";
-import Context from "../Context";
+import CreditCard from "../CreditCard";
 
 const Sidebar = () => {
-  const [cardInfo] = useContext(Context);
-  const {
-    number,
-    name,
-    validate,
-    securityNumber,
-    showFront,
-    isValidCard,
-  } = cardInfo;
+  const [isDesktop, setIsDesktop] = useState(false);
 
-  const emptyFrontBg = "../../assets/images/empty-card-front-bg.svg";
-  const emptyBackBg = "../../assets/images/empty-card-back-bg.svg";
-
-  const validCardFrontBg = "../../assets/images/card-front-bg.svg";
-  const validCardBackBg = "../../assets/images/card-back-bg.svg";
-
-  const frontCardBg = isValidCard ? validCardFrontBg : emptyFrontBg;
-  const backCardBg = isValidCard ? validCardBackBg : emptyBackBg;
+  const onResize = () => {
+    setIsDesktop(window.matchMedia('(min-width: 1024px)').matches);
+  }
+  
+  useEffect(() => {
+    window.addEventListener('resize', onResize);
+  });
 
   return (
     <SidebarContainer>
       <BackStep to="/">
-        <strong>Etapa 2</strong> de 3
+        {isDesktop 
+        ? 'Alterar forma de pagamento'
+        : <><strong>Etapa 2</strong> de 3</>
+      }
       </BackStep>
       <Step />
-      <Card flip={showFront}>
-        <CardFront>
-          <CardBackground src={frontCardBg} />
-          {isValidCard && <FlagCard src="../../assets/images/visa.png" />}
-          <CardNumber>{number}</CardNumber>
-          <CardName>{name}</CardName>
-          <CardValidate>{validate}</CardValidate>
-        </CardFront>
-        <CardBack>
-          <CardBackground src={backCardBg} />
-          <CardSecurityNumber>{securityNumber}</CardSecurityNumber>
-        </CardBack>
-      </Card>
+      <CreditCard />
     </SidebarContainer>
   );
 };

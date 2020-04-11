@@ -1,9 +1,12 @@
 import React from 'react';
-import { BreadcrumbContainer, BreadcrumbList, BreadcrumbItem, BreadcrumbStep } from './style';
+import { 
+  BreadcrumbContainer,
+  BreadcrumbList,
+  BreadcrumbItem,
+  BreadcrumbStep
+} from './style';
 
 const Breadcrumb = () => {
-  const step = 1;
-  const numberOfSteps = 3;
   return (
     <BreadcrumbContainer>
       <BreadcrumbList>
