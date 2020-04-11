@@ -4,6 +4,7 @@ import { BaseStyle, PageContent, Content } from "./style";
 import Sidebar from "./components/Sidebar";
 import RegisterForm from "./components/Form";
 import Context from "./components/Context";
+import Breadcrumb from "./components/Breadcrumb";
 
 function App() {
   const [cardInfo, setCardInfo] = useState({
@@ -23,6 +24,7 @@ function App() {
           <PageContent>
             <Sidebar cardInfo={cardInfo} />
             <Content>
+              <Breadcrumb />
               <RegisterForm cardInfo={cardInfo} setCardInfo={setCardInfo} />
             </Content>
           </PageContent>

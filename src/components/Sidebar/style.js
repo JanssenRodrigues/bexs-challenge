@@ -133,8 +133,8 @@ export const CardNumber = styled.span`
   text-align: center;
   ${media.desktop`
     top: 106px;
-    font-size: 22px;
-    line-height: 28px;
+    font-size: 24px;
+    line-height: 27px;
     letter-spacing: 2.3px;
   `};
 `;
@@ -149,7 +149,7 @@ export const CardName = styled.span`
   ${media.desktop`
     top: 167px;
     font-size: 16px;
-`};
+  `};
 `;
 
 export const CardValidate = styled.span`
@@ -161,8 +161,9 @@ export const CardValidate = styled.span`
   right: 0;
   ${media.desktop`
     top: 167px;
+    right: 9px;
     font-size: 16px;
-`};
+  `};
 `;
 
 export const CardSecurityNumber = styled.span`
@@ -177,5 +178,20 @@ export const CardSecurityNumber = styled.span`
     top: 110px;
     right: 140px;
     font-size: 16px;
-`};
+  `};
+`;
+
+export const FlagCard = styled.img`
+  display: block;
+  width: 53px;
+  height: 18px;
+  position: absolute;
+  top: 27px;
+  left: 14px;
+  ${media.desktop`
+    width: 69px;
+    height: 23px;
+    top: 35px;
+    left: 27px;
+  `}
 `;

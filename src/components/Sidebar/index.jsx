@@ -10,6 +10,7 @@ import {
   CardName,
   CardValidate,
   CardSecurityNumber,
+  FlagCard,
 } from "./style";
 import Step from "../Step";
 import Context from "../Context";
@@ -43,6 +44,7 @@ const Sidebar = () => {
       <Card flip={showFront}>
         <CardFront>
           <CardBackground src={frontCardBg} />
+          {isValidCard && <FlagCard src="../../assets/images/visa.png" />}
           <CardNumber>{number}</CardNumber>
           <CardName>{name}</CardName>
           <CardValidate>{validate}</CardValidate>

@@ -38,6 +38,18 @@ export const Placeholder = styled.span`
   transform-origin: 0 0;
   transition: 0.2s transform ease-in-out;
   pointer-events: none;
+  ${({ info }) => 
+    info && css`
+       i {
+           display: inline-block;
+           width: 13px;
+           height: 13px;
+           background-color: #C9C9C9;
+           border-radius: 50%;
+           margin-left: 10px;
+           
+       }
+    `}
   ${({ fixed }) =>
     fixed &&
     css`

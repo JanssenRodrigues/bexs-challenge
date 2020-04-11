@@ -50,11 +50,9 @@ export const Content = styled.article`
   width: 100%;
   background-color: #f7f7f7;
   ${media.desktop`
-    display: flex;
-    flex-direction: column;
-    justify-content: center;
     height: 100%;
     background-color: #fff;
+    padding-top: 50px;
     padding-left: 168px;
   `};
 `;

@@ -18,6 +18,7 @@ const Button = styled.button`
   font-family: "SF Pro";
   font-size: 17px;
   line-height: 22px;
+  cursor: pointer;
 `;
 
 export default Button;

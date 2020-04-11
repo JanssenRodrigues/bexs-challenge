@@ -44,6 +44,7 @@ export const SelectContainer = styled.div`
 
   input {
     ${InputStyle}
+    cursor: pointer;
   }
 `;
 

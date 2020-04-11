@@ -29,6 +29,7 @@ const SelectBox = ({ inputName, placeholder }) => {
         name="select-box"
         type="text"
         value={selectedPlaceholder}
+        autoComplete="off"
         onChange={({ target }) => verifyInstallments(target.value)}
         onBlur={({ target }) => verifyInstallments(target.value)}
       />

@@ -64,6 +64,8 @@ const Input = ({ inputName, placeholder, mask, validateForm }) => {
     }
   };
 
+  const isSecurityNumber = inputName === "securityNumber";
+
   return (
     <InputContainer name={inputName} error={error}>
       <input
@@ -74,15 +76,15 @@ const Input = ({ inputName, placeholder, mask, validateForm }) => {
           setValue(target.value);
           handleEditCardInfo(target);
         }}
-        onFocus={() => inputName === "securityNumber" && flipCard(false)}
+        onFocus={() => isSecurityNumber && flipCard(false)}
         onBlur={() => {
           validateInput();
-          if (inputName === "securityNumber") {
+          if (isSecurityNumber) {
             flipCard(true);
           }
         }}
       />
-      <Placeholder fixed={value}>{placeholder}</Placeholder>
+      <Placeholder fixed={value} info={isSecurityNumber}>{placeholder}<i /></Placeholder>
       {error && <ErrorMessage>{errorMessages[inputName]}</ErrorMessage>}
     </InputContainer>
   );
