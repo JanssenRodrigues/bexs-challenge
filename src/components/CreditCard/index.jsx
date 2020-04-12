@@ -1,6 +1,16 @@
 import React, { useContext } from "react";
 import Context from "../Context";
-import { Card, CardFront, CardBackground, FlagCard, CardNumber, CardName, CardValidate, CardBack, CardSecurityNumber } from "./style";
+import {
+  Card,
+  CardFront,
+  CardBackground,
+  FlagCard,
+  CardNumber,
+  CardName,
+  CardValidate,
+  CardBack,
+  CardSecurityNumber,
+} from "./style";
 
 const CreditCard = () => {
   const [cardInfo] = useContext(Context);
@@ -12,16 +22,16 @@ const CreditCard = () => {
     showFront,
     isValidCard,
   } = cardInfo;
-  
+
   const emptyFrontBg = "../../assets/images/empty-card-front-bg.svg";
   const emptyBackBg = "../../assets/images/empty-card-back-bg.svg";
-  
+
   const validCardFrontBg = "../../assets/images/card-front-bg.svg";
   const validCardBackBg = "../../assets/images/card-back-bg.svg";
-  
+
   const frontCardBg = isValidCard ? validCardFrontBg : emptyFrontBg;
   const backCardBg = isValidCard ? validCardBackBg : emptyBackBg;
-  
+
   return (
     <Card flip={showFront}>
       <CardFront>
@@ -36,7 +46,6 @@ const CreditCard = () => {
         <CardSecurityNumber>{securityNumber}</CardSecurityNumber>
       </CardBack>
     </Card>
-
   );
 };
 

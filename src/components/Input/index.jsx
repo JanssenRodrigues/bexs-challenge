@@ -84,7 +84,10 @@ const Input = ({ inputName, placeholder, mask, validateForm }) => {
           }
         }}
       />
-      <Placeholder fixed={value} info={isSecurityNumber}>{placeholder}<i /></Placeholder>
+      <Placeholder fixed={value} info={isSecurityNumber}>
+        {placeholder}
+        <i />
+      </Placeholder>
       {error && <ErrorMessage>{errorMessages[inputName]}</ErrorMessage>}
     </InputContainer>
   );

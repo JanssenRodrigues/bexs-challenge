@@ -28,7 +28,7 @@ function App() {
             <Sidebar cardInfo={cardInfo} />
             <Content>
               <Breadcrumb />
-              <RegisterForm cardInfo={cardInfo} setCardInfo={setCardInfo} />
+              <RegisterForm />
             </Content>
             <Order />
           </PageContent>

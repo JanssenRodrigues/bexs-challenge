@@ -1,5 +1,4 @@
 import React, { useRef } from "react";
-import PropTypes from "prop-types";
 import { Form } from "./style";
 import Input from "../Input";
 import SelectBox from "../SelectBox";
@@ -54,16 +53,6 @@ const RegisterForm = () => {
       <Button onClick={(e) => e.preventDefault()}>Continuar</Button>
     </Form>
   );
-};
-
-RegisterForm.propTypes = {
-  cardInfo: PropTypes.shape({
-    number: PropTypes.string,
-    name: PropTypes.string,
-    validate: PropTypes.string,
-    securityNumber: PropTypes.string,
-  }).isRequired,
-  setCardInfo: PropTypes.func.isRequired,
 };
 
 export default RegisterForm;
